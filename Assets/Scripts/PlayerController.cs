@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             move = move.normalized * speed;
 
-            transform.up = move;
+            //transform.up = move; // xoay tàu
             transform.position += new Vector3(move.x, move.y, 0) * Time.deltaTime;
         }
     }

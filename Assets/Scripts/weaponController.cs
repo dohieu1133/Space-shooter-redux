@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weaponController : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     public GameObject bulletPrefabs;
 
