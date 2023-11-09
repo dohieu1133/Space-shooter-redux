@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] int health = 100;
     public void TakeDamage (int damage)

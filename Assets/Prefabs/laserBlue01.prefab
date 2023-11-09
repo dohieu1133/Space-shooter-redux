@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1642718676193317432}
   - component: {fileID: 6420564621306146529}
   - component: {fileID: 2422073421152070516}
-  - component: {fileID: 2429343371350074838}
   - component: {fileID: -1829517840288001955}
+  - component: {fileID: 7551286333174179367}
   m_Layer: 0
   m_Name: laserBlue01
   m_TagString: Untagged
@@ -132,20 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.54}
   m_EdgeRadius: 0
---- !u!114 &2429343371350074838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733686706198472153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcbf4fab7c5bd24484243b0a55d1bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxRange: 1
 --- !u!50 &-1829517840288001955
 Rigidbody2D:
   serializedVersion: 4
@@ -173,3 +159,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7551286333174179367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733686706198472153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05841ba950f738f49b04a2dfa49cdf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxRange: 1
+  damage: 30
+  tagEnemy: Enemy

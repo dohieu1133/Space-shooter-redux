@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Properties;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class BulletController : MonoBehaviour
+public class LaserController : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     [SerializeField] float maxRange = 1;
     [SerializeField] int damage = 30;
+    [SerializeField] string tagEnemy;
 
     float rangeCounter = 0;
 
@@ -25,11 +24,13 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyController enemy = collision.GetComponent<EnemyController>();
-        if (enemy != null )
+        if (collision.CompareTag(tagEnemy))
         {
-            enemy.TakeDamage(damage);
+            Health healthEnemy = collision.GetComponent<Health>();
+            if (healthEnemy != null) {
+                healthEnemy.TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
