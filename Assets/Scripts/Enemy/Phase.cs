@@ -18,11 +18,11 @@ public class Phase : MonoBehaviour
         {
             if (transform.parent)
             {
-                EnemySpawner enemySpawner = transform.parent.gameObject.GetComponent<EnemySpawner>();
-                if (enemySpawner)
+                LevelController level = transform.parent.gameObject.GetComponent<LevelController>();
+                if (level)
                 {
                     Destroy(gameObject);
-                    enemySpawner.PhaseClear();
+                    level.PhaseClear();
                 }
             }
         }

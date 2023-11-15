@@ -6,19 +6,20 @@ using UnityEngine;
 public class EnemyType1 : MonoBehaviour
 {
     [SerializeField] Transform posA;
-    [SerializeField] int Speed;
+    [SerializeField] float speed = 5f;
 
     Vector2 target;
 
-    private void Start()
+    private void Awake()
     {
+        speed += Random.Range(-2f, 2f);
         target = posA.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, Speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, target) == 0)
         {
             Destroy(gameObject);

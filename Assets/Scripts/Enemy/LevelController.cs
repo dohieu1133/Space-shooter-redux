@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class LevelController: MonoBehaviour
 {
     private void Awake()
     {
@@ -28,6 +28,17 @@ public class EnemySpawner : MonoBehaviour
     {
         if (transform.childCount <= 1)
         {
+            if (transform.parent)
+            {
+                LevelController level = transform.parent.gameObject.GetComponent<LevelController>();
+                if (level)
+                {
+                    Destroy(gameObject);
+                    level.PhaseClear();
+                    return;
+                }
+            }
+
             Destroy(gameObject);
             return;
         }

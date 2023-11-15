@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posA: {fileID: 6750020137710837620}
-  Speed: 3
+  speed: 6
 --- !u!114 &1399417028511538765
 MonoBehaviour:
   m_ObjectHideFlags: 0

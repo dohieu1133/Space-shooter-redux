@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxRange: 1
-  damage: 30
+  damage: 50
   tagEnemy: Enemy

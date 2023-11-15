@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    [SerializeField] float speed = 10;
+    [SerializeField] float speed = 10f;
     [SerializeField] float maxRange = 1;
     [SerializeField] int damage = 30;
     [SerializeField] string tagEnemy;
