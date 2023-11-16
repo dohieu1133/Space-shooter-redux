@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyType3 : MonoBehaviour
 {
     [SerializeField] float delateTime = 1f;
-    [SerializeField] float seed = 4f;
+    [SerializeField] float seed = 6f;
 
 
     float countTime = 0;
@@ -21,6 +21,7 @@ public class EnemyType3 : MonoBehaviour
     private void Start()
     {
         target = transform.position;
+        countTime = Random.Range(-2f, 2f);
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class EnemyType3 : MonoBehaviour
 
         if (countTime >= delateTime)
         {
-            countTime = 0;
+            countTime = Random.Range(-2f, 2f);
             target = posA.position;
         }
         

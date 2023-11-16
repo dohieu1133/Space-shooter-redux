@@ -20,7 +20,7 @@ public class EnemyType1 : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, target) == 0)
+        if (Vector2.Distance(transform.position, target) < .1f)
         {
             Destroy(gameObject);
         }

@@ -7,7 +7,7 @@ public class EnemyType2 : MonoBehaviour
     public GameObject bulletPrefabs;
     [SerializeField] Transform weapon;
 
-    [SerializeField] float timeShoot = 2f;
+    [SerializeField] float timeShoot = 4f;
     float countTime = 0;
 
     private void Awake()

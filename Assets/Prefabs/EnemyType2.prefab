@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs: {fileID: 916837392842069252, guid: 2697f8221aa974b4f84cb2932f4da90f, type: 3}
   weapon: {fileID: 7940461202161215372}
-  timeShoot: 1
+  timeShoot: 6
 --- !u!114 &1094502995767065593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,4 +191,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a924f05c9dc78b54bbb53b118d80fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 2
