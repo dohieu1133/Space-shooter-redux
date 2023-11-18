@@ -12,6 +12,7 @@ public class EnemiesSpawn : MonoBehaviour
     float distance;
 
     [SerializeField] float timeDelay = 0.5f;
+    [SerializeField] float speedMove = 8f;
     float time;
     private void Awake()
     {
@@ -32,8 +33,11 @@ public class EnemiesSpawn : MonoBehaviour
         time = timeDelay;
         GameObject enemy = Instantiate(enemyPrefabs, transform.position, transform.rotation);
         enemy.transform.SetParent(transform.transform.parent);
+
         enemy.AddComponent(typeof(Move2point));
+        enemy.GetComponent<Move2point>().speed = speedMove;
         enemy.GetComponent<Move2point>().point = target;
+        
         target.x -= distance;
         nbEnemy--;
         if (nbEnemy == 0)

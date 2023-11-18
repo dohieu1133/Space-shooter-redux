@@ -5,8 +5,14 @@ using UnityEngine.Rendering;
 
 public class Phase : MonoBehaviour
 {
+    [SerializeField] Transform objectPosition;
     private void Start()
     {
+        if (objectPosition != null)
+        {
+            transform.position = objectPosition.position;
+        }
+
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(true);
@@ -21,10 +27,10 @@ public class Phase : MonoBehaviour
                 LevelController level = transform.parent.gameObject.GetComponent<LevelController>();
                 if (level)
                 {
-                    Destroy(gameObject);
                     level.PhaseClear();
                 }
             }
+            Destroy(gameObject);
         }
     }
 }

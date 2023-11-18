@@ -26,22 +26,20 @@ public class LevelController: MonoBehaviour
 
     public void PhaseClear ()
     {
-        if (transform.childCount <= 1)
+        if (transform.childCount > 1)
         {
-            if (transform.parent)
-            {
-                LevelController level = transform.parent.gameObject.GetComponent<LevelController>();
-                if (level)
-                {
-                    Destroy(gameObject);
-                    level.PhaseClear();
-                    return;
-                }
-            }
-
-            Destroy(gameObject);
+            transform.GetChild(1).gameObject.SetActive(true);
             return;
         }
-        transform.GetChild(1).gameObject.SetActive(true);
+
+        Destroy(gameObject);
+        if (transform.parent)
+        {
+            LevelController level = transform.parent.gameObject.GetComponent<LevelController>();
+            if (level)
+            {
+                level.PhaseClear();
+            }
+        }
     }
 }

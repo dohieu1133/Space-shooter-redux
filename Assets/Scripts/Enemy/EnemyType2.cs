@@ -21,7 +21,7 @@ public class EnemyType2 : MonoBehaviour
         countTime += Time.deltaTime;
         if (countTime >= timeShoot)
         {
-            countTime = Random.Range(-2f, 2f); ;
+            countTime = Random.Range(-2f, 2f);
             if (bulletPrefabs != null)
             {
                 GameObject bullet = Instantiate(bulletPrefabs, weapon.position, weapon.rotation);

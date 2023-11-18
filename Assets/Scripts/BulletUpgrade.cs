@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour
+public class BulletUpgrade : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
-    [SerializeField] float damage = 1;
-    [SerializeField] string tagEnemy;
-
-    float rangeCounter = 0;
+    [SerializeField] int type;
 
     Vector2 screenBounds;
     private void Start()
@@ -19,8 +15,6 @@ public class LaserController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(transform.up.x, transform.up.y, 0) * speed * Time.deltaTime;
-        rangeCounter += Time.deltaTime;
         if (transform.position.x > screenBounds.x || transform.position.x < -screenBounds.x || transform.position.y > screenBounds.y || transform.position.y < -screenBounds.y)
         {
             Destroy(gameObject);
@@ -29,11 +23,12 @@ public class LaserController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(tagEnemy))
+        if (collision.CompareTag("Player"))
         {
-            Health healthEnemy = collision.GetComponent<Health>();
-            if (healthEnemy != null) {
-                healthEnemy.TakeDamage(damage);
+            PlayerController player = collision.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.Upgrade(type);
             }
             Destroy(gameObject);
         }
