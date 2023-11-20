@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] WeaponController weapon;
     [SerializeField] GameObject[] damages;
 
-    int health = 5;
+    public int health = 5;
 
     Vector2 move = Vector2.zero;
 

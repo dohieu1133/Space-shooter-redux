@@ -18,6 +18,11 @@ public class EnemyType2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Shoot();
+    }
+
+    void Shoot()
+    {
         countTime += Time.deltaTime;
         if (countTime >= timeShoot)
         {

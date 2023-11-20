@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 public class Phase : MonoBehaviour
 {
     [SerializeField] Transform objectPosition;
+    [SerializeField] bool destroyPhase = false;
+
     private void Start()
     {
         if (objectPosition != null)
@@ -20,7 +22,7 @@ public class Phase : MonoBehaviour
     }
     void Update()
     {
-        if (transform.childCount == 0)
+        if (destroyPhase || transform.childCount == 0)
         {
             if (transform.parent)
             {

@@ -4,37 +4,60 @@ using UnityEngine;
 
 public class EnemyType3 : MonoBehaviour
 {
-    [SerializeField] float delateTime = 1f;
-    [SerializeField] float seed = 6f;
+    [SerializeField] float speedRotation = 10f;
+    public GameObject bulletPrefabs;
+    [SerializeField] Transform weapon;
 
+    [SerializeField] float timeShoot = 3f;
 
     float countTime = 0;
 
-    Vector2 target;
-    Transform posA;
+    Transform target;
 
     private void Awake()
     {
-        posA = GameObject.Find("playerShip").transform;
+        target = GameObject.Find("playerShip").transform;
     }
 
     private void Start()
     {
-        target = transform.position;
         countTime = Random.Range(-2f, 2f);
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        countTime += Time.deltaTime;
+        if (target == null)
+        {
+            target = transform;
+        }
+        if (weapon == null)
+        {
+            weapon = transform;
+        }
 
-        if (countTime >= delateTime)
+        Rotation();
+        Shoot();
+    }
+
+    Vector3 vectorToTarget;
+    void Rotation()
+    {
+        vectorToTarget = target.position - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * speedRotation);
+    }
+    void Shoot()
+    {
+        countTime += Time.deltaTime;
+        if (countTime >= timeShoot)
         {
             countTime = Random.Range(-2f, 2f);
-            target = posA.position;
+            if (bulletPrefabs != null)
+            {
+                GameObject bullet = Instantiate(bulletPrefabs, weapon.position, weapon.rotation);
+            }
         }
-        
-        transform.position = Vector2.MoveTowards(transform.position, target, seed * Time.deltaTime);
     }
 }

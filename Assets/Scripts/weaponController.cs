@@ -40,6 +40,6 @@ public class WeaponController : MonoBehaviour
 
     public void Damage()
     {
-        power = Mathf.Max(power - 3, 0);
+        power = Mathf.Max(power - 1, 0);
     }
 }

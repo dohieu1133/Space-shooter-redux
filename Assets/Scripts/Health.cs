@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float health = 3;
+    public float health = 3;
     
     [SerializeField] GameObject[] items;
     [SerializeField] float[] changes;
