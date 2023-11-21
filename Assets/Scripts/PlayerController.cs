@@ -39,9 +39,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            Health enemyHealth = collision.gameObject.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(health);
+            }
+            Damage();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "Enemy bullet")
+        if (collision.tag == "Enemy bullet")
         {
             Health enemyHealth = collision.gameObject.GetComponent<Health>();
             if (enemyHealth != null)
@@ -67,5 +79,15 @@ public class PlayerController : MonoBehaviour
                 damages[i].SetActive(true);
             }
         }
+
+        if (health == 0)
+        {
+            Dead();
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject);
     }
 }
