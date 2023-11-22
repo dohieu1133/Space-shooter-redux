@@ -16,6 +16,7 @@ public class Boss2Phase1 : MonoBehaviour
 
     private void Start()
     {
+        countTime = timeShoot - 1;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         numberHorizontal = (int) ((screenBounds.x / horizontalDistance) * 2);
         numberVertical = (int) ((screenBounds.y / verticalDistance) * 2);
