@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Image imageHealth;
     [SerializeField] Sprite[] number;
+    [SerializeField] Text nameLevelText;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject gameClearPanel;
     [SerializeField] GameObject level;
+    [SerializeField] string nextLevel;
 
     PlayerController player;
     int healthPlayer;
@@ -26,6 +28,7 @@ public class UIManager : MonoBehaviour
         {
             gameClearPanel.SetActive(false);
         }
+        nameLevelText.text = SceneManager.GetActiveScene().name + "\nMove: w, a, s, d\nShoot: k";
     }
     private void Update()
     {
@@ -52,6 +55,14 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            if (number[0] != null)
+            {
+                if (imageHealth != null)
+                {
+                    imageHealth.sprite = number[0];
+                }
+            }
+
             GameOver();
         }
     }
@@ -78,5 +89,9 @@ public class UIManager : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(nextLevel);
     }
 }

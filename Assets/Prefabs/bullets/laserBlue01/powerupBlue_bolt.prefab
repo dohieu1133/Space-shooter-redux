@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6815315057927383124}
   - component: {fileID: 8515198273522659272}
   - component: {fileID: 4651019827190412847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: powerupBlue_bolt
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2587689323988389525
 SpriteRenderer:
