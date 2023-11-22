@@ -86,14 +86,17 @@ public class UIManager : MonoBehaviour
     public void Replay()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
     public void NextLevel()
     {
         SceneManager.LoadScene(nextLevel);
+        Time.timeScale = 1f;
     }
 
     public void Pause()
@@ -106,7 +109,7 @@ public class UIManager : MonoBehaviour
     }
     public void Continue()
     {
-        if (pausePanel != null)
+        if (gameOverPanel != null)
         {
             pausePanel.SetActive(false);
         }
