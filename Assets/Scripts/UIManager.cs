@@ -29,6 +29,10 @@ public class UIManager : MonoBehaviour
         {
             gameClearPanel.SetActive(false);
         }
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
         nameLevelText.text = SceneManager.GetActiveScene().name + "\nMove: w, a, s, d\nShoot: k";
     }
     private void Update()
