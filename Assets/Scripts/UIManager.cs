@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text nameLevelText;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject gameClearPanel;
+    [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject level;
     [SerializeField] string nextLevel;
 
@@ -93,5 +94,22 @@ public class UIManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(nextLevel);
+    }
+
+    public void Pause()
+    {
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(true);
+        }
+        Time.timeScale = 0f;
+    }
+    public void Continue()
+    {
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
+        Time.timeScale = 1f;
     }
 }
